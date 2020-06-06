@@ -9,6 +9,9 @@ export class ServersComponent implements OnInit {
 
   serverEnable = true;
   serverCreation = 'Server is not created...';
+  serverName = 'server name';
+  infoOutput = '';
+  serverCreated = false;
 
   constructor() {
     setTimeout(() => {
@@ -21,6 +24,19 @@ export class ServersComponent implements OnInit {
   }
 
   onServerCreate() {
+    this.serverCreated = true;
     this.serverCreation = 'Server is created!';
+  }
+
+  onSeverNameChange(event: Event) {
+    this.serverName = ((event.target) as HTMLInputElement).value;
+  }
+
+  onMouseOverServer($event: MouseEvent) {
+    this.infoOutput = 'mouse over server';
+  }
+
+  onMouseOutServer($event: MouseEvent) {
+    this.infoOutput = 'mouse leave server';
   }
 }
