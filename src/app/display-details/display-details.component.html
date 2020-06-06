@@ -1,0 +1,12 @@
+<button
+  class="btn btn-primary"
+  (click)="onDisplayDetailsClick()"
+  >Display Details</button>
+<p *ngIf="statusHidden">Secret Password = 'tuna'</p>
+<p>{{statusHidden}}</p>
+<label>Logs:</label>
+<p
+  *ngFor="let log of clickLogs"
+  [ngStyle]="{backgroundColor: getColor(log)}"
+  [ngClass]="{'later-log': isLogGreaterThanFive(log)}"
+  >{{log}}</p>
